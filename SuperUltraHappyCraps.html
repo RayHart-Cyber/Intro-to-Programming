@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperUltraHappyCraps</title>
+</head>
+<body>
+<h1>SuperUltraHappyCraps</h1>
+<hr/>
+<p>Click to start the dice roll</p>
+<p id="total"></p>
+<button id="button">Roll Dice</button>
+
+
+<script>
+    var diceOne = {
+        sides: 6,
+        roll: function() {
+            var randomNumberOne = Math.floor(Math.random() * this.side) + 1;
+            return randomNumberOne;
+
+        }
+
+    }
+    var diceTwo = {
+        side: 6,
+        roll: function() {
+            var randomNumberTwo = Math.floor(Math.random() * this.side) +1;
+            return randomNumberTwo;
+        }
+    }
+    function printNumber(number) {
+        var total = document.getElementById('total');
+        total.innerHTML = number;
+
+    }
+    var button = document.getElementById('button');
+    button.onclick = function(){
+        var result = diceOne.roll() + diceTwo.roll();
+            printNumber(result);
+        
+    };
+
+
+</script>
+</body>
+</html>

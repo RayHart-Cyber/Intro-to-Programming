@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instaplot 9000</title>
+</head>
+<body>
+    <h1>Instaplot 9000</h1>
+    <hr/>
+    <p>Click to start the Instaplot 9000</p>
+
+    <button onclick="promptUserForInfo()">Start Instaplot</button>
+    <p id="demo"></p>
+
+    <script>
+        function promptUserForInfo() {
+            var person = prompt("What is your name?","Jamie");
+            var jobTitle = prompt("One word  job title or career", "Programmer");
+            var commonTech = prompt("A common technology", "Computer");
+            var leastDangerousCareer = prompt("World's Least Dangerous Career", "Programmer");
+            var authorityTitle = prompt("Title of Authority", "Director");
+            var dangerousAnimal = prompt("A dangerous animal", "Tiger");
+            var maxCats = prompt("Maximum of cats a person should own");
+            maxCats = (180 + Number (maxCats))/3
+            var color = prompt("What's your favorite color", "red");
+            var age = prompt("How old are you?");
+            var hoursPlayed = prompt("How long do you play video games");
+            if (hoursPlayed != null){
+                document.getElementById("demo").innerHTML = person + " " + jobTitle + " " + "and the" + " " +
+                commonTech + " " + "of Destiny" + "<br>" + " " + " " + "Set 3000 years in the future, a down-on-his-luck" + " " +
+                leastDangerousCareer + " " + "teams up with a robot" + " " + dangerousAnimal + " " + "and a world-famous"
+                + commonTech + " " + "hacker to steal the last" + " " + commonTech + " " + "on Earth from the" + " "
+                    + authorityTitle + " " + "of the New World Government. This is the maximum of cats a person should have " + maxCats;
+            }
+        }
+    </script>
+</body>
+</html>

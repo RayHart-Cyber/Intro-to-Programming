@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>InstaPlot 9000</title>
+    </head>
+    <body>
+        <h1>InstaPlot 9000</h1>
+        <hr/>
+        <p>Click to Start the InstaPlot 9000</p>
+        <button onclick="rollDice()">roll dice</button>
+        <p id="total"></p>
+
+
+        <script>
+            function diceOne(){
+                sides: 6,
+                roll: function() {
+                    var randomNumberOne = Math.floor(Math.random() * this.side) + 1;
+                    return randomNumberOne;
+
+                }
+
+            }
+            function diceTwo(){
+                side: 6,
+                roll: function() {
+                    var randomNumberTwo = Math.floor(Math.random() * this.side) +1;
+                    return randomNumberTwo;
+                }
+            }
+            function printNumber(number) {
+                var total = getElementById('total');
+                total.innerHTML = number;
+                
+            }
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!-- Developed @ the University of Advancing Technology for use in UAT courses. -->
+<html>
+<head>
+<title>Virtual Pet</title>
+<script>
+// Virtual Pet Stats and starting values
+// TODO: Change the name of your Virtual Pet on the line below.
+var petName = "Virtual Pet";
+var currentHealth = 60;
+var maxHealth = 100;
+var petStatus = "healthy";
+// TODO: Add more Virtual Pet stats that will be modified by your functions
+
+
+
+// Increases the current health of the Virtual Pet until it is maxed out.
+function exercise()
+{
+	currentHealth = currentHealth + 5;
+	if(currentHealth  > maxHealth)
+	{
+		currentHealth = maxHealth;
+	}
+	
+    // Update the display after an action has occurred.
+	updateDisplay();
+}
+
+// TODO: Write new functions that will process and modify the new stats you have created. (The majority of your new code should go here.)
+
+
+
+
+
+
+
+
+
+// Modifies any stats that automatically change every few seconds. 
+//    (For example, health decreases every few seconds so the play needs to occationally exercise their Virtual Pet)
+function changesOverTime()
+{
+	currentHealth = currentHealth - 4;
+	// TODO: Add in other changes to the Virtual Pet stats that occur on a regular basis.
+	
+}
+
+
+// Checks the pet's health and modifies the status accordingly
+function checkHealth()
+{
+	if(currentHealth <= 0 )
+	{
+		petStatus = "Dead";
+        currentHealth = 0;
+	}
+	
+	//TODO (Optional): Add other health status checks (For example, sick if health < 15)
+}
+
+
+// Displays a Title to the screen for your Virtual Pet game
+function displayTitle()
+{
+	// TODO (Optional): Create your own title
+	
+}
+
+
+// Displays the current pet stats to the screen.
+function displayPetStats()
+{
+	document.write("<h2>" + petName + " Status: " + petStatus + "</h2>");
+	document.write("<p>Health = " + currentHealth + "&nbsp;&nbsp;&nbsp;Max Health = " + maxHealth + "</p>");
+	// TODO: Add the display of new Virtual Pet stats here
+	
+	
+	document.close();
+}
+
+
+// Displays the buttons to the screen enabling the user to interact with their virtual pet.
+function displayUserOptions()
+{
+	if(petStatus != "Dead")
+	{
+		document.write("<button onclick='exercise()'>Exercise</button>");
+		
+		// TODO: Create buttons for other actions
+		
+	}
+}
+
+
+// Calls all the functions that display information to the screen.
+function updateDisplay()
+{
+	displayTitle();
+	displayUserOptions();
+	displayPetStats();
+
+}
+
+
+// This function executes the game and manages the passing of time.
+function gameLoop(timestamp)
+{
+	if(timestamp > last_iteration + time_interval)
+	{
+		last_iteration = timestamp;
+		
+		changesOverTime();
+		checkHealth();
+		
+		// TODO: Check other Virtual Pet stats and update the petStatus accordingly
+        
+        
+        
+        
+        // After all stats updates are done, update/recreate the display
+        updateDisplay();
+	}
+	
+	
+	
+	// Life continues unless the Virtual Pet is dead (health <= 0)
+	if(petStatus != "Dead")
+	{
+        // Executes the gameLoop function once again.
+		requestAnimationFrame(gameLoop);
+	}
+}
+
+// Other global variables that control the timing of the game.
+var time_interval = 5000;
+var last_iteration = 0;
+</script>
+</head>
+
+<body>
+<h1>My Virtual Pet!</h1>
+<!-- Initiate the gameLoop for the first time.-->
+<button onclick='gameLoop()'>Bring my Virtual Pet to Life!</button>
+</body>
+</html>
